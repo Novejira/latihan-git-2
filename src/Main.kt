@@ -1,36 +1,53 @@
-import kotlin.math.PI
 import kotlin.math.sqrt
+import kotlin.math.PI
 
-class Segitiga(private val alas: Double, private val tinggi: Double, private val sisi1: Double, private val sisi2: Double, private val sisi3: Double) {
+class triangle (
+    val alas: Double,
+    val tinggi: Double,
+    val sisiA: Double,
+    val sisiB: Double,
+    val sisiC: Double ) {
 
     fun hitungLuas(): Double {
         return 0.5 * alas * tinggi
     }
 
     fun hitungKeliling(): Double {
-        return sisi1 + sisi2 + sisi3
+        return sisiA + sisiB + sisiC
     }
 }
-
-class Lingkaran(private val jariJari: Double) {
-
-    fun hitungLuas(): Double {
-        return PI * jariJari * jariJari
+class  circle (val jarijari:Double){
+    fun hitungluas():Double{
+        return PI*jarijari*jarijari
     }
-
-    fun hitungKeliling(): Double {
-        return 2 * PI * jariJari
+    fun hitungkeliling():Double{
+        return 2* PI*jarijari
     }
 }
 
 fun main() {
-    // Contoh penggunaan untuk segitiga
-    val segitiga = Segitiga(alas = 5.0, tinggi = 8.0, sisi1 = 3.0, sisi2 = 4.0, sisi3 = 5.0)
-    println("Luas Segitiga: ${segitiga.hitungLuas()}")
-    println("Keliling Segitiga: ${segitiga.hitungKeliling()}")
+    // menghitung luas dan keliling lingkaran
+    val segitiga = triangle(
+        alas = 1.0,
+        tinggi = 2.0,
+        sisiA = 3.0,
+        sisiB = 4.0,
+        sisiC = 5.0)
 
-    // Contoh penggunaan untuk lingkaran
-    val lingkaran = Lingkaran(jariJari = 4.0)
-    println("Luas Lingkaran: ${lingkaran.hitungLuas()}")
-    println("Keliling Lingkaran: ${lingkaran.hitungKeliling()}")
+    val luassegitiga = segitiga.hitungLuas()
+    val kelilingsegitiga = segitiga.hitungKeliling()
+
+    println("Luas segitiga: $luassegitiga")
+    println("Keliling segitiga: $kelilingsegitiga")
+
+    println("")
+
+    // menghitung luas dan keliling lingkaran
+    val lingkaran = circle (jarijari = 5.0)
+
+    val luaslingkaran = lingkaran.hitungluas()
+    val kelilinglingkaran = lingkaran.hitungkeliling()
+
+    println("Luas lingkaran: $luaslingkaran")
+    println("Keliling lingkaran: $kelilinglingkaran")
 }
